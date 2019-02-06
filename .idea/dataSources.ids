@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - sp@localhost" uuid="a3187f7f-0925-40c3-9496-9c32a3c6a265">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="sp"/>
+      <table id="2" parent="1" name="divisions"/>
+      <table id="3" parent="1" name="invites"/>
+      <table id="4" parent="1" name="sessions"/>
+      <table id="5" parent="1" name="users"/>
+      <table id="6" parent="1" name="request_meta"/>
+      <table id="7" parent="1" name="requests"/>
+      <column id="8" parent="2" name="division_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="9" parent="2" name="division_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="10" parent="2" name="division_description">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <index id="11" parent="2" name="division_name">
+        <columns>division_name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="12" parent="2" name="division_name">
+        <columns>division_name</columns>
+        <underlying-index>division_name</underlying-index>
+      </key>
+      <key id="13" parent="2" name="PRIMARY">
+        <columns>division_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="14" parent="3" name="invite_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="15" parent="3" name="invite_get_user">
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="16" parent="3" name="invite_code">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="17" parent="3" name="invite_date">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="18" parent="3" name="invite_disabled">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="19" parent="3" name="invite_reg_user">
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <index id="20" parent="3" name="invite_code">
+        <columns>invite_code</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="21" parent="3" name="invite_get_user">
+        <columns>invite_get_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="22" parent="3" name="invite_reg_user">
+        <columns>invite_reg_user</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="23" parent="3" name="invite_reg_user">
+        <columns>invite_reg_user</columns>
+        <underlying-index>invite_reg_user</underlying-index>
+      </key>
+      <key id="24" parent="3" name="PRIMARY">
+        <columns>invite_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="25" parent="3" name="get_user_fk_invites">
+        <columns>invite_get_user</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="26" parent="3" name="reg_user_fk_invites">
+        <columns>invite_reg_user</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="27" parent="4" name="session_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="28" parent="4" name="session_user">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="29" parent="4" name="session_key">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="30" parent="4" name="session_start">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="31" parent="4" name="session_end">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="32" parent="4" name="session_disabled">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="33" parent="4" name="session_user">
+        <columns>session_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="34" parent="4" name="PRIMARY">
+        <columns>session_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="35" parent="4" name="sessions_fk_users">
+        <columns>session_user</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="36" parent="5" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="37" parent="5" name="user_email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="38" parent="5" name="user_pass">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="39" parent="5" name="user_firstname">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="40" parent="5" name="user_secondname">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="41" parent="5" name="user_lastname">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="42" parent="5" name="user_division">
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="43" parent="5" name="user_post">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="44" parent="5" name="user_phone">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="45" parent="5" name="user_locked">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="46" parent="5" name="user_level">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="47" parent="5" name="user_update">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="48" parent="5" name="user_register">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <index id="49" parent="5" name="user_division">
+        <columns>user_division</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="50" parent="5" name="user_email">
+        <columns>user_email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="51" parent="5" name="PRIMARY">
+        <columns>user_id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="52" parent="5" name="user_email">
+        <columns>user_email</columns>
+        <underlying-index>user_email</underlying-index>
+      </key>
+      <foreign-key id="53" parent="5" name="users_fk_divisions">
+        <columns>user_division</columns>
+        <ref-key>~.divisions.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="54" parent="6" name="meta_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="55" parent="6" name="request_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="56" parent="6" name="request_status">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="57" parent="6" name="status_set_user">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="58" parent="6" name="meta_create">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <index id="59" parent="6" name="request_id">
+        <columns>request_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="60" parent="6" name="status_set_user">
+        <columns>status_set_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="61" parent="6" name="PRIMARY">
+        <columns>meta_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="62" parent="6" name="request_meta_ibfk_1">
+        <columns>status_set_user</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="63" parent="6" name="request_meta_ibfk_2">
+        <columns>request_id</columns>
+        <ref-key>~.requests.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="64" parent="7" name="request_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="65" parent="7" name="request_title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="66" parent="7" name="request_description">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="67" parent="7" name="request_user">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="68" parent="7" name="request_division">
+        <data-type>bigint(20) unsigned</data-type>
+      </column>
+      <column id="69" parent="7" name="request_create">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <index id="70" parent="7" name="request_user">
+        <columns>request_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="71" parent="7" name="requrest_division">
+        <columns>request_division</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="72" parent="7" name="PRIMARY">
+        <columns>request_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="73" parent="7" name="requests_ibfk_1">
+        <columns>request_user</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="74" parent="7" name="requests_ibfk_2">
+        <columns>request_division</columns>
+        <ref-key>~.divisions.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>

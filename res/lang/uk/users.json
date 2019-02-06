@@ -1,0 +1,99 @@
+{
+
+  "email_field":"Email",
+  "email_format_error":"Невірний формат email!",
+  "pass_field":"Пароль",
+  "pass_format_error":"Невірний формат паролю!",
+  "newpass_field":"Новий пароль",
+  "newpass_format_error":"Невірний формат нового паролю!",
+  "pass_error":" Невірний пароль!",
+  "invite_field":"Запрошення",
+  "invite_format_error":"Невірний формат запрошення!",
+  "firstname_field":"Ім'я",
+  "secondname_field":"По батькові",
+  "lastname_field":"Прізвище",
+  "division_field":"Підрозділ",
+  "division_empty":"",
+  "post_field":"Посада",
+  "phone_field":"Телефон",
+  "level_field":"Роль",
+  "register_field":"Зареєстровано",
+  "update_field":"Оновлено",
+  "fullname_field":"Ім'я користувача",
+  "work_field":"Місце роботи",
+  "locked_field":"Заблокувати",
+
+  "login":{
+    "title":"Вхід",
+    "submit_btn":"Увійти",
+    "login_failed":"Невірний логін або пароль!",
+    "user_block":"Ваш аккаунт заблаковано!"
+  },
+
+  "logout":{
+    "title":"Вийти"
+  },
+
+  "register":{
+    "title":"Реєстрація",
+    "submit_btn":"Зареєструватись",
+    "user_exist":"Користувач з вказаним email вже зареєстрований!",
+    "invite_not_exist":"Не вірне запрошення!",
+    "register_failed":"Помилка регістрації!",
+    "email_subject":"Реєстрація на сайті %site_name%",
+    "email_register":"Ваш аккаунт успішно строворено. Для входу скористайтесь паролем: <br> %user_pass%"
+  },
+
+  "restore": {
+    "title":"Відновити",
+    "submit_btn":"Відновити",
+    "email_theme":"Відновлення паролю на сайті %site_name%",
+    "email_account_not_exist":"На сайті %site_name% на знайдено аккаунту з вашим email!",
+    "email_new_password":"Відновлення паролю успішно відбулось. Для входу скористайтесь паролем: <br> %user_pass%"
+  },
+
+  "levels":[
+    "Користувач", "Модератор", "Адмін"
+  ],
+
+  "profile": {
+    "title":"Профіль",
+    "submit_btn":"Зберегти",
+    "reset_btn":"Скинути",
+    "personal_title":"Особисті данні",
+    "work_title":"Робоча інформація",
+    "contact_title":"Контактна інформація",
+    "pass_title":"Зміна паролю",
+    "pass_help":"Для встановлення нового паролю потрібно вказати старий пароль та ввести новий пароль!"
+  },
+
+  "details": {
+    "title":"Деталі",
+    "user_info":"Аккаунт",
+    "invite_info":"Інвайт реєстрації",
+    "invite_not_found":"Інвайт не знайдено.",
+    "invite_issued_user":"Виданий",
+    "invite_issued_date":"Дата видачі"
+  },
+
+  "sessions": {
+    "title":"Сессії",
+    "active":"Активна",
+    "timeout":"Завершена за часом",
+    "disabled":"Зупинена виходом",
+    "number":"#",
+    "start":"Початок",
+    "end":"Остання активність"
+  },
+
+  "users": {
+    "title":"Користувачі",
+    "search":"Пошук",
+    "no_found":"Користувачів не знайдено!",
+    "overall_title":"Загальна інформація",
+    "contact_title":"Контактна інформація",
+    "go_to_users":"Усі користувачі",
+    "users_not_exist":"Користувача не зайдено!"
+  }
+
+}
